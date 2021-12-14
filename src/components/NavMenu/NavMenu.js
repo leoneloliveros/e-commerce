@@ -9,7 +9,7 @@ function NavMenu() {
                     <Navbar.Brand href="#home">E-commerce</Navbar.Brand>
                     <Navbar className="justify-content-end">
                         <Button variant="dark" className="me-3">
-                            <BsCartFill></BsCartFill>
+                            <BsCartFill />
                             Canasta
                         </Button>
                         <Button variant="outline-light">Salir</Button>

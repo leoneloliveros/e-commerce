@@ -14,7 +14,7 @@ const ProductCard = (props) => {
                     <Button variant="primary">${props.price}</Button> {' '}
                     <Button
                         variant="outline-secondary"
-                        onClick={() => {setShowInfo(true); console.log(showInfo)}}
+                        onClick={() => setShowInfo(true)}
                         
                     >
                         Detalles

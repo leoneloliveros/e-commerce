@@ -6,8 +6,8 @@ import LandingPage from './pages/landing/Landing';
 function App() {
   return (
     <div className="App">
-      <NavMenu></NavMenu>
-      <LandingPage></LandingPage>
+      <NavMenu />
+      <LandingPage />
     </div>
   );
 }

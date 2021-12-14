@@ -11,7 +11,7 @@ const Filter = () => {
                     aria-describedby="basic-addon2"
                 />
                 <Button variant="outline-secondary" id="button-addon2">
-                    <BsSearch></BsSearch>
+                    <BsSearch />
                 </Button>
             </InputGroup>
         </div>

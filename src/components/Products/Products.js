@@ -1,9 +1,9 @@
 import { Col, Container, Row } from "react-bootstrap";
-import { products } from "./data";
+import { productsData } from "../../mock/productsData";
 import ProductCard from "./ProductCard";
 
 const Products = () => {
-    const allProducts = products;
+    const allProducts = productsData;
     return (
         <div>
             <Container className="p-0 mb-5">
@@ -15,7 +15,7 @@ const Products = () => {
                                 name={elem.name}
                                 description={elem.description}
                                 price={elem.price}                                
-                            ></ProductCard>
+                            />
                         </Col>
                     ))}
                 </Row>

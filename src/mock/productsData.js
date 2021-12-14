@@ -1,4 +1,4 @@
-export const products = [
+export const productsData = [
     {
         "name": "Hipster Ultimate",
         "description": "La camisa ideal para hipsters.",

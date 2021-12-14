@@ -12,16 +12,16 @@ const LandingPage = () => {
                     <Col lg="3" md="12">
                             <Row>
                                 <Col lg="12" md="12">
-                                    <Filter></Filter>
+                                    <Filter />
                                 </Col>
                                 <Col lg="12" className='d-lg-block d-none'>
-                                    <Categories></Categories>
+                                    <Categories />
                                 </Col>
                             </Row>
                     </Col>
                     <Col lg="9" md="12">
-                        <MainSlider></MainSlider>
-                        <Products></Products>
+                        <MainSlider />
+                        <Products />
                     </Col>
                 </Row>
             </Container>
