@@ -3,6 +3,7 @@ import Categories from "../../components/Categories/Categories";
 import Filter from "../../components/Filter/Filter";
 import MainSlider from "../../components/MainSlider/MainSlider";
 import Products from "../../components/Products/Products";
+import SortingFiler from "../../components/SortingFilter/SortingFiler";
 
 const LandingPage = () => {
     return (
@@ -21,6 +22,7 @@ const LandingPage = () => {
                     </Col>
                     <Col lg="9" md="12">
                         <MainSlider />
+                        <SortingFiler />
                         <Products />
                     </Col>
                 </Row>
