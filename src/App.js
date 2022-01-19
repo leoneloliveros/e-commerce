@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import NavMenu from './components/NavMenu/NavMenu';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import DefaultPage from './pages/DefaultPage/DefaultPage';
+import CreateNewProductPage from './pages/CreateNewProductPage/CreateNewProductPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element= {<LandingPage />}>
           <Route path="/category/:category" element= {<LandingPage />}></Route>
         </Route>
+        <Route path="/create-new" element= {<CreateNewProductPage />}></Route>
         <Route path="/not-found" element= {<DefaultPage />}></Route>
         <Route path="*" element= {<Navigate to="/not-found" />}></Route>
       </Routes>
