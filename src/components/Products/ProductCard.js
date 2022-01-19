@@ -32,8 +32,10 @@ const ProductCard = (props) => {
                         show={showInfo}
                         title={props.name}
                         image={props.image}
+                        description={props.description}
+                        price={props.price}
+                        category={props.category}
                         onHide={() => setShowInfo(false)}
-                        
                     />
                 </Card.Body>
             </Card>

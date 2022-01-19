@@ -24,3 +24,15 @@ body {
 .m-left-text {
   margin-left: 5px;
 }
+
+.custom-link {
+  text-decoration: auto;
+}
+
+.list-group-item .custom-link {
+  color: #212529;
+}
+
+.list-group-item.active .custom-link  {
+  color: white !important;
+}

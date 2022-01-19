@@ -1,5 +1,4 @@
 import {
-    Alert,
     Badge,
     Button,
     Card,
@@ -12,12 +11,11 @@ import {
     Tabs
 } from "react-bootstrap";
 import {
-    BsFillExclamationCircleFill,
     BsFillHeartFill,
     BsStar,
     BsStarFill
 } from "react-icons/bs";
-import Comments from "./Comments";
+/* import Comments from "./Comments"; */
 
 const DetailModal = (props) => {
     return (
@@ -33,12 +31,12 @@ const DetailModal = (props) => {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Alert variant="primary">
+                    {/* <Alert variant="primary">
                         <BsFillExclamationCircleFill></BsFillExclamationCircleFill>
                         <span className="m-left-text">
                             Este producto está agotado
                         </span>
-                    </Alert>
+                    </Alert> */}
                     <Container>
                         <Row>
                             <Col lg={6}>
@@ -48,7 +46,7 @@ const DetailModal = (props) => {
                             </Col>
                             <Col lg={6}>
                                 <p className="detail__modal">
-                                    Precio: <b>299</b>
+                                    Precio: <b>${props.price}</b>
                                 </p>
                                 <p className="detail__modal">
                                     Calificación:
@@ -60,14 +58,14 @@ const DetailModal = (props) => {
                                 </p>
                                 <div className="detail__modal">
                                     <Badge bg="warning" text="dark">
-                                        Hipster
+                                        {props.category}
                                     </Badge>
-                                    <Badge
+                                    {/* <Badge
                                         bg="secondary"
                                         className="m-left-text"
                                     >
                                         Deportiva
-                                    </Badge>{" "}
+                                    </Badge> */}{" "}
                                 </div>
 
                                 <p className="detail__modal__fav">
@@ -90,26 +88,17 @@ const DetailModal = (props) => {
                                         title="Descripción"
                                     >
                                         <p>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Mauris
-                                            at tincidunt ipsum. Donec sit amet
-                                            elit lobortis, placerat felis vel,
-                                            aliquam mauris. Mauris varius magna
-                                            nulla, sit amet congue mi aliquam
-                                            id. Etiam dapibus in magna sed
-                                            sollicitudin. Aenean efficitur
-                                            volutpat felis in rhoncus. Ut velit
-                                            ex, commodo ut purus.
+                                            {props.description}
                                         </p>
                                     </Tab>
                                     <Tab
                                         eventKey="comments"
                                         title="Comentarios"
                                     >
-                                        <Comments
+                                        {/* <Comments
                                             title="Germán Escobar comentó hace dos días"
                                             comment="Esta camisa está increíble, la quiero!"
-                                        ></Comments>
+                                        ></Comments> */}
                                         <FormControl
                                             className="mt-2"
                                             as="textarea"
@@ -124,7 +113,7 @@ const DetailModal = (props) => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.onHide}>
-                        Close
+                        Cerrar
                     </Button>
                     <Button variant="primary" onClick={props.onHide}>
                         Comprar

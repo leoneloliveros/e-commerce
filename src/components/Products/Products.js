@@ -32,7 +32,8 @@ const Products = () => {
                                 image={elem.image}
                                 name={elem.title}
                                 description={elem.description}
-                                price={elem.price}                                
+                                price={elem.price}
+                                category={elem.category}                              
                             />
                         </Col>
                     ))}

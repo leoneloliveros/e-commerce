@@ -14,7 +14,9 @@ function App() {
         <Route path="/" element= {<LandingPage />}>
           <Route path="/category/:category" element= {<LandingPage />}></Route>
         </Route>
-        <Route path="/create-new" element= {<CreateNewProductPage />}></Route>
+        <Route path="/create-new" element= {<CreateNewProductPage />}>
+          <Route path=":idProduct" element= {<CreateNewProductPage />}></Route>
+        </Route>
         <Route path="/not-found" element= {<DefaultPage />}></Route>
         <Route path="*" element= {<Navigate to="/not-found" />}></Route>
       </Routes>

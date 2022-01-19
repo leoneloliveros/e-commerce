@@ -6,8 +6,9 @@ const CategoryItem = (props) => {
         <>
             <ListGroup.Item
                 className="d-flex justify-content-between align-items-start"
+                active={props.active}
             >
-                <Link to={props.link} className="ms-2 me-auto">
+                <Link to={props.link} className="ms-2 me-auto custom-link">
                     {props.name}
                 </Link>
                 <Badge bg="secondary" pill>

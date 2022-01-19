@@ -1,8 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ToastComponent from '../../components/ToastComponent/ToastComponent';
 
 function CreateNewProductPage(){
+
+  let { idProduct } = useParams();
+
   const styles = {
     label: {
       display: "flex",
@@ -12,7 +17,7 @@ function CreateNewProductPage(){
   let [dataForm, setDataForm] = useState(
     {
       title: "",
-      price: 0,
+      price: "",
       description: "",
       image: "",
       category: ""
@@ -27,7 +32,6 @@ function CreateNewProductPage(){
         [inputName] : value
     })
   }
-
   const enviarDatos = (event) => {
     event.preventDefault();
     const url = "https://fakestoreapi.com/products";
@@ -36,8 +40,16 @@ function CreateNewProductPage(){
         setShowMessage(true);
       });
   }
-
   let [showMessage, setShowMessage] = useState(false);
+
+  useEffect(()=> {
+    if(idProduct) {
+      const url = `https://fakestoreapi.com/products/${idProduct}`;
+      axios.get(url).then(rpt => {
+        setDataForm(rpt.data);
+      }).catch( err => console.log(err))
+    }    
+  }, [idProduct])
 
   return (
     <div style={{position:'relative'}}>
@@ -46,7 +58,7 @@ function CreateNewProductPage(){
         <div className="row justify-content-center">
           <div className=".col-md-8 col-sm-10 col-xs-12 mt-2">
             <form className="row" onSubmit={enviarDatos}>
-              <h2 className="display-4">Crear nuevo producto</h2>
+              <h2 className="display-4">{idProduct ? 'Editar Producto':'Crear nuevo producto'}</h2>
               <div className="mb-3">
                 <label 
                   htmlFor="title" 
@@ -60,6 +72,7 @@ function CreateNewProductPage(){
                   id="title" 
                   placeholder="Título"
                   name="title"
+                  value={dataForm.title}
                   onChange={handleInputChange}
                 />
               </div>
@@ -77,6 +90,7 @@ function CreateNewProductPage(){
                   id="price"
                   name="price"
                   placeholder="Precio" 
+                  value={dataForm.price}
                   onChange={handleInputChange}
                 />
               </div>
@@ -94,6 +108,7 @@ function CreateNewProductPage(){
                   id="description" 
                   name="description"
                   placeholder="Descripción"
+                  value={dataForm.description}
                   onChange={handleInputChange} 
                 />
               </div>
@@ -111,6 +126,7 @@ function CreateNewProductPage(){
                   id="image" 
                   name="image"
                   placeholder="Imagen"
+                  value={dataForm.image}
                   onChange={handleInputChange} 
                 />
               </div>
@@ -128,12 +144,13 @@ function CreateNewProductPage(){
                   id="category" 
                   name="category"
                   placeholder="Categoría"
+                  value={dataForm.category}
                   onChange={handleInputChange}
                 />
               </div>
               <div className="mb-3">
                 <button type="submit" className="btn btn-primary" disabled={showMessage}>
-                  Crear Producto
+                  {idProduct ? 'Guardar Cambios':'Crear Producto'}
                 </button>
               </div>
             </form>
