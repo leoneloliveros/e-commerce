@@ -14,3 +14,4 @@ Crear conexiones hacia el api Fake store: [Link](https://fakestoreapi.com/docs)
 8. Agregar una página de Not_Found cuando se agregue un link que no existe
 9. Desplegar en Netlify
 10. Crear un PR.
+11. Agregar un React Context para cambiar el theme de nuestra aplicacion
