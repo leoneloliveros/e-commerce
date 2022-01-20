@@ -1,3 +1,4 @@
+import React from 'react';
 import { ListGroup } from "react-bootstrap";
 //import { categoryData } from "../../mock/categoriesData";
 import CategoryItem from "./CategoryItem";
@@ -5,7 +6,7 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const Categories = () => {
+function Categories() {
     //const categories = categoryData;
     const [categories, setCategories] = useState([]);
     let { category } = useParams();

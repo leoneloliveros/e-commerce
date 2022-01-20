@@ -1,27 +1,28 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useStateParams } from "../../ParamsContext";
 //import { productsData } from "../../mock/productsData";
 import ProductCard from "./ProductCard";
 
-const Products = () => {
+const Products = ({searchParametes}) => {
     //const allProducts = productsData;
     let { category } = useParams();
-    let [searchParams] = useSearchParams();
     const [products, setProducts] = useState([]);
+    const { params } = useStateParams();
+
     useEffect(() => {
         let url = "https://fakestoreapi.com/products";
         if(category)
             url = `${url}/category/${category}`;
-        if(searchParams.get("sort"))
-            url = `${url}?sort=${searchParams.get("sort")}`; 
-
+        if(params.sort)
+            url = `${url}?sort=${params.sort}`; 
         axios.get(url)
         .then(res => {
             setProducts(res.data);
         })
-    }, [category, searchParams]);
+    }, [category, params]);
     return (
         <div>
             <Container className="p-0 mb-5">

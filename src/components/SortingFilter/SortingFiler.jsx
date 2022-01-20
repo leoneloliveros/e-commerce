@@ -1,13 +1,26 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useSearchParams } from "react-router-dom";
+import { useStateParams } from "../../ParamsContext";
 
 function SortingFiler(){
   let [searchParams, setSearchParams] = useSearchParams();
+
+  const {params, setParams} = useStateParams();
+
+  useEffect(()=> {
+    setSearchParams(params);
+  }, [params, setSearchParams])
+
   const changeSorting = (param) => {
-    if(param === "")
+    if(param === ""){
       setSearchParams({});
-    else
+      setParams({});
+    }
+    else{
       setSearchParams({sort: param});
+      setParams({sort: param});
+    }
   }
   return(
     <select 
